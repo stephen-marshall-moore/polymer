@@ -1,0 +1,21 @@
+{{ $baseurl := .Site.BaseURL }}
+
+<!-- Main Content -->
+<paper-item>
+<div class="content">
+
+
+<iron-pages attr-for-selected="data-route" selected="route">
+
+{{range $index, $page := .Paginator.Pages}}
+  <div class="article">
+    <div class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+    </div>
+  </div>
+{{ end }}
+
+</iron-pages>
+
+</div>
+</paper-item>
+

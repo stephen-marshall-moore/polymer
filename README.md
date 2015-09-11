@@ -36,16 +36,16 @@ config.toml
 
 ```toml
 theme="polymer"
-baseurl = "Your Site URL"
+baseurl = "http://blog.elliptic.info"
 languageCode = "en-us"
-title = "Your Site Title"
+title = "Blog Elliptic"
 MetaDataFormat = "toml"
 paginate = 10 # optional
 disqusShortname = "Your Disqus Name" # optional
 copyright = "© 2015 Copyright Text"
 
 [params]
-  author = "Your Name"
+  author = "Stephen Moore"
   photo = "images/photo.png" # optional
   profile = "images/profile.png" # optional
   cover = "images/cover.png" # optional
@@ -60,7 +60,7 @@ copyright = "© 2015 Copyright Text"
 	username = "Your facebook name"
   [[params.logos]]
     site = "github" # optional
-	username = "Your Github name"
+	username = "stephen-marshall-moore"
   [[params.logos]]
     site = "gplus" # optional
 	username = "Your Google+ name"

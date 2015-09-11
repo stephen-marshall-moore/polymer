@@ -1,0 +1,7 @@
+{{range $index, $page := .Paginator.Pages}}
+    <a data-route="{{ .Title }}" href="{{ .Permalink }}">
+      <iron-icon icon="{{ .Title }}"></iron-icon>
+      <span>{{ .Title }}</span>
+    </a>
+{{ end }}
+

@@ -9,5 +9,5 @@ features = ["Polymer Material Design","Google Analytics","Pagination",
 min_version = 0.13
 
 [author]
-  name = "pdevty"
-  homepage = "http://pdevty.github.io/blog/"
+  name = "xoc"
+  homepage = "http://blog.elliptic.info/"
