@@ -5,13 +5,14 @@
 <div class="content">
 
 
-<iron-pages attr-for-selected="data-route" selected="route">
+<iron-pages attr-for-selected="data-route" selected="{{"{{route}}"}}">
 
-{{range $index, $page := .Paginator.Pages}}
-  <div class="article">
-    <div class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-    </div>
-  </div>
+{{range $section, $pages := .Site.Sections}}
+  <section data-route="{{ $section }}">
+    <paper-material elevation="1">
+      {{ $section }}
+    </paper-material>
+  </section>
 {{ end }}
 
 </iron-pages>
