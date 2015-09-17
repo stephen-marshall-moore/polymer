@@ -1,0 +1,46 @@
+<!--
+@license
+Copyright (c) 2015 EllipticInfo Authors. All rights reserved.
+-->
+
+<dom-module id="post-display">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <div>
+    <input class="paper-font-body2" value="{{postslug::input}}">
+    <!-- button class="paper-font-body2" on-click="changeSlug">display</button -->
+    </div>
+    <div><hr/><span>{{postslug}}<span></div>
+  </template>
+
+  <script>
+    (function () {
+      Polymer({
+        is: 'post-display',
+        properties: {
+          postslug: {
+            type: String,
+            notify: true
+          },
+        },
+
+        //listeners: {
+        //  'postslug-changed': 'changeSlug'
+        //},
+
+        changeSlug: function(e) {
+          //this.postslug
+          //this.$.stop();
+          //this.$.vsrc.src = 'https://s3-us-west-2.amazonaws.com/videopail/' + this.vsource;
+          //this.$.current.textContent = this.$.vsrc.src;
+          //this.$.vdisplay.load();
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

@@ -7,12 +7,26 @@
 
 <iron-pages attr-for-selected="data-route" selected="{{"{{route}}"}}">
 
-{{range $section, $pages := .Site.Sections}}
-  <section data-route="{{ $section }}">
+{{ range .Site.Menus.main }}
+  <section data-route="{{ .Identifier }}">
     <paper-material elevation="1">
-      {{ $section }}
+
+      <paper-item>
+        <post-list slug-url="/{{ .Identifier }}/index.html"></post-list>
+      </paper-item>
+      <!--  partial "post/import_posts" . }} -->
     </paper-material>
   </section>
+
+  {{ if( eq .Identifier "post" ) }}
+    <section data-route="/{{ .Identifier }}/:postslug">
+      <paper-material elevation="1">
+        <!-- post-list url="/post/building-thrift.html"></post-list-->
+        <span>{{ .Identifier }}
+      </paper-material>
+    </section>
+  {{ end }}
+
 {{ end }}
 
 </iron-pages>

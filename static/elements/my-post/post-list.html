@@ -1,0 +1,76 @@
+<!--
+@license
+Copyright (c) 2015 The Blog Elliptic Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+-->
+
+<dom-module id="post-list">
+  <style>
+    :host {
+      display: block;
+    }
+
+    .iron-selected {
+      background: #eee;
+    }
+  </style>
+  <template>
+    <div id="imp_content"></div>
+    <!-- section>
+    <iron-selector selected="{{selectedpost}}">
+      <template is="dom-repeat" items="{{posts}}">
+        <post-item item="{{post}}"/>
+      </template>
+    </iron-selector>
+    </section -->
+  </template>
+
+  <script>
+    (function () {
+      Polymer({
+        is: 'post-list',
+        properties: {
+          selectedpost: {
+            type: Number,
+            notify: true,
+          },
+        posts: {
+            type: Array,
+            notify: true,
+          },
+        slugUrl: {
+            type: String,
+            observer: 'importFragment',
+          },
+        flag: {
+            type: Boolean,
+            value: true,
+          },
+        },
+
+        //ready: function() {
+          //alert( this.$.content );
+          //if( this.flag ) {
+            //this.importFragment();
+            //this.flag = false;
+          //}
+        //},
+
+        importFragment: function() {
+          //if (this.postslug) {
+            console.log( "importFragment would be here, with: " + this.$.imp_content.id);
+            var link = this.importHref( this.slugUrl,
+                function() {
+                  console.log( "appending at: " + this.$.imp_content.id)
+                  Polymer.dom(this.$.imp_content).appendChild(link.import.body);
+                },
+                function() {
+                  console.log("post-import error");
+                });
+          //}
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

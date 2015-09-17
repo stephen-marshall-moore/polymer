@@ -1,0 +1,66 @@
+<!--
+@license
+Copyright (c) 2015 EllipticInfo Authors. All rights reserved.
+-->
+
+<dom-module id="post-item">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+
+  <template>
+    <section>
+      <table>
+        <tr>
+        <td><img width="100 px" on-tap="showSource" src="{{posterPath}}"/></td>
+        <td><button on-tap="showSource">View</button></td>
+        <td><div>{{item.VideoID.S}}</div></td>
+        </tr>
+      </table>
+    </section>
+  </template>
+
+  <script>
+    (function () {
+      Polymer({
+        is: 'post-item',
+        properties: {
+          item: {
+            type: Object,
+            notify: true,
+          },
+          vsource: {
+            type: String,
+            notify: true,
+          },
+          bucket: {
+            type: String,
+            value: 'https://s3-us-west-2.amazonaws.com/videopail/'
+          },
+          streamPath: {
+            type: String
+          },
+          posterPath: {
+            type: String,
+            computed: 'poster(item)'
+          }
+        },
+
+        poster: function(i) {
+          this.streamPath = i.Streampath ? i.Streampath.S : '';
+          var fullPath = i.Posterpath ? this.bucket + i.Posterpath.S : '';
+          return fullPath;
+        },
+
+        showSource: function(e) {
+          this.vsource = this.streamPath;
+          page.redirect('/view');
+        },
+
+      });
+    })();
+  </script>
+
+</dom-module>

@@ -1,6 +1,4 @@
-{{ partial "header.html" . }}
-
-{{ $baseurl := .Site.BaseURL }}
+<paper-item>
 <div class="content">
 
   <div class="article">
@@ -8,7 +6,7 @@
     {{if .Params.categories }}
       <div class="categories">
         {{ range $index, $category := .Params.categories }}
-          <a href="{{$baseurl}}/categories/{{ $category | urlize }}/">{{ $category }}</a>
+          <a href="categories/{{ $category | urlize }}/">{{ $category }}</a>
         {{ end }}
       </div>
     {{end}} 
@@ -17,29 +15,26 @@
       {{ .Date.Format "2 Jan 2006" }}
       {{if .Params.tags }}
         {{ range $index, $tag := .Params.tags }}
-          <a href="{{$baseurl}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
+          <a href="tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
         {{ end }}
       {{end}} 
     </div>
-    {{ with .Site.DisqusShortname }}
-      {{ partial "disqus.html" . }}
-    {{ end }}
   </div>
 
 </div>
+</paper-item>
 
 <paper-item>
   {{if .Prev}}
-    <a href="{{.Prev.Permalink}}"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
+    <a data-route="/post/{{.Prev.Slug}}" href="/post/{{.Prev.Slug}}"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
   {{else}}
     <paper-fab disabled icon="chevron-left"></paper-fab>
   {{end}}
     <div class="flex"></div>
   {{if .Next}}
-    <a href="{{.Next.Permalink}}"><paper-fab icon="chevron-right"></paper-fab></a>
+    <a  data-route="/post/{{.Next.Slug}}" href="/post/{{.Next.Slug}}"><paper-fab icon="chevron-right"></paper-fab></a>
   {{else}}
     <paper-fab disabled icon="chevron-right"></paper-fab>
   {{end}}
 </paper-item>
 
-{{ partial "footer.html" . }}

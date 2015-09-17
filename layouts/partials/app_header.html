@@ -47,7 +47,7 @@
   <!-- endreplace-->
 
   <!-- Configured routes are in here -->
-  <link rel="import" href="routing.html">
+  <link rel="import" href="routing/index.html">
 
   <!-- link id="navmenu" rel="import" href="nav.html" -->
 
@@ -175,10 +175,10 @@
 
         <paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
 
-        {{ range $section, $pages := .Site.Sections }}
-          <a data-route="{{ $section }}" href="/{{ $section }}">
-            <iron-icon icon="{{ $section}}"></iron-icon>
-            <span>{{ $section }}</span>
+        {{ range .Site.Menus.main }}
+          <a data-route="{{ .Identifier }}" href="{{ .URL }}">
+            <iron-icon icon="{{ .Pre }}"></iron-icon>
+            <span>{{ .Name }}</span>
           </a>
         {{ end }}
 

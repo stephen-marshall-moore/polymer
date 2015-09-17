@@ -1,0 +1,47 @@
+<!--
+@license
+Copyright (c) 2015 EllipticInfo Authors. All rights reserved.
+-->
+
+<dom-module id="post-import">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <!-- div>
+    <input class="paper-font-body2" value="{{postslug::input}}">
+    <button class="paper-font-body2" on-click="changeSlug">display</button>
+    </div -->
+    <div id="content"></div>
+  </template>
+
+  <script>
+    (function () {
+      Polymer({
+        is: 'post-import',
+        properties: {
+          postslug: {
+            type: String,
+            observer: 'importFragment'
+          },
+        },
+
+        importFragment: function() {
+          if (this.postslug) {
+            console.log(this.postslug);
+            var link = this.importHref("/post/" + this.postslug + ".html",
+                function() {
+                  Polymer.dom(this.$.content).appendChild(link.import.body);
+                },
+                function() {
+                  console.log("post-import error");
+                });
+          }
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

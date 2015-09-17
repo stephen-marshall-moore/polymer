@@ -1,0 +1,28 @@
+{{ $baseurl := .Site.BaseURL }}
+
+<!-- Main Content -->
+<paper-item>
+<div class="content">
+
+
+<iron-pages attr-for-selected="data-route" selected="{{"{{route}}"}}">
+
+{{range $section, $pages := .Site.Sections}}
+  <section data-route="{{ $section }}">
+    <paper-material elevation="1">
+      {{ range first 1 .Pages }}
+        {{ if eq $section "post" }}
+          {{ .Render "poly_single" }}
+        {{ else }}
+          {{ .Render "single" }}
+        {{ end }}
+      {{ end }}
+    </paper-material>
+  </section>
+{{ end }}
+
+</iron-pages>
+
+</div>
+</paper-item>
+
