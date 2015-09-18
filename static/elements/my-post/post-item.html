@@ -14,15 +14,11 @@ This code may only be used under the BSD style license found at http://polymer.g
       background: #eee;
     }
   </style>
+
   <template>
-    <div id="imp_content"></div>
-    <!-- section>
-    <iron-selector selected="{{selectedpost}}">
-      <template is="dom-repeat" items="{{posts}}">
-        <post-item item="{{post}}"/>
-      </template>
-    </iron-selector>
-    </section -->
+    <section>
+      <article id="imp_content" ></article>
+    </section>
   </template>
 
   <script>
@@ -30,27 +26,32 @@ This code may only be used under the BSD style license found at http://polymer.g
       Polymer({
         is: 'post-item',
         properties: {
-        slugUrl: {
+        postSlug: {
             type: String,
             observer: 'importFragment',
+            value: 'building-thrift'
           },
-        },
+        }, //properties
+
+        //slug2url: function() {
+        //    return '/post/' + this.postSlug + '/index.html';
+        //  },
 
 
         importFragment: function() {
-          if (app && app.params && app.params.slug) {
+          //if (app && app.params && app.params.slug) {
+          if (this.postSlug) {
             console.log( "importFragment would be here, with: " + this.$.imp_content.id);
-            //var link = this.importHref( this.slugUrl + "/index.html",
-            var link = this.importHref( "/post/" + app.params.slug + "/index.html",
+            //var link = this.importHref( this.slug2url(),
+            var link = this.importHref( "/post/" + this.postSlug + "/index.html",
                 function() {
                   if( link.import === null ) {
                     console.log( "nothing to import @ " + link.href );
                   } else {
-                    var nodes = Polymer.dom(this.$.imp_content).childNodes;
-                    for ( n in nodes ) {
-                      Polymer.dom(this.$.imp_content).removeChild(n);
-                    }
-
+                    //var nodes = Polymer.dom(this.$.imp_content).childNodes;
+                    //for ( n in nodes ) {
+                    //  Polymer.dom(this.$.imp_content).removeChild(n);
+                    //}
                     console.log( "appending at: " + this.$.imp_content.id)
                     Polymer.dom(this.$.imp_content).appendChild(link.import.body);
                   }
@@ -59,8 +60,9 @@ This code may only be used under the BSD style license found at http://polymer.g
                   console.log("post-item: import error");
                 });
           }
-        }
-      });
+        } //importFragment
+
+      }); //polymer
     })();
   </script>
 
