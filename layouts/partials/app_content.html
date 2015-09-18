@@ -1,36 +1,49 @@
-{{ $baseurl := .Site.BaseURL }}
-
-<!-- Main Content -->
+<!-- App Content -->
 <paper-item>
 <div class="content">
 
 
 <iron-pages attr-for-selected="data-route" selected="{{"{{route}}"}}">
 
-{{ range .Site.Menus.main }}
-  {{ if eq .Identifier "post" }}
-  <section data-route="{{ .Identifier }}">
+  <section data-route="home">
     <paper-material elevation="1">
 
       <paper-item>
-        <post-item slug-url="{{"{{.params.slug}}"}}"></post-item>
+        <post-list slug-url="/home/index.html"></post-item>
       </paper-item>
-      <!--  partial "post/import_posts" . }} -->
+
     </paper-material>
   </section>
-  {{ else }}
-  <section data-route="{{ .Identifier }}">
+
+  <section data-route="posts">
     <paper-material elevation="1">
 
       <paper-item>
-        <post-list slug-url="{{ .URL }}index.html"></post-list>
+        <post-list slug-url="/post/index.html"></post-item>
       </paper-item>
-      <!--  partial "post/import_posts" . }} -->
+
     </paper-material>
   </section>
-  {{ end }}
 
-{{ end }}
+  <section data-route="post">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <post-item slug-url="[[route]]"></post-item>
+      </paper-item>
+
+    </paper-material>
+  </section>
+
+  <section data-route="contact">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <post-list slug-url="/contact/index.html"></post-item>
+      </paper-item>
+
+    </paper-material>
+  </section>
 
 </iron-pages>
 

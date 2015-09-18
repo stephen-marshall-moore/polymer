@@ -47,7 +47,7 @@
   <!-- endreplace-->
 
   <!-- Configured routes are in here -->
-  <link rel="import" href="routing/index.html">
+  <link rel="import" href="elements/routing.html">
 
   <!-- link id="navmenu" rel="import" href="nav.html" -->
 
@@ -175,19 +175,20 @@
 
         <paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
 
-        {{ range .Site.Menus.main }}
-          {{ if .Post }}
-          <a data-route="{{ .Identifier }}" href="{{ .Post }}">
-            <iron-icon icon="{{ .Pre }}"></iron-icon>
-            <span>{{ .Name }}</span>
+          <a data-route="home" href="/home">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
           </a>
-          {{ else }}
-          <a data-route="{{ .Identifier }}" href="{{ .URL }}">
-            <iron-icon icon="{{ .Pre }}"></iron-icon>
-            <span>{{ .Name }}</span>
+          
+          <a data-route="posts" href="/posts">
+            <iron-icon icon="list"></iron-icon>
+            <span>Posts</span>
           </a>
-          {{ end }}
-        {{ end }}
+          
+          <a data-route="contact" href="/contact">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a>
 
         </paper-menu>
 

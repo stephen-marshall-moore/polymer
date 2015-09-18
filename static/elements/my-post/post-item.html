@@ -38,13 +38,19 @@ This code may only be used under the BSD style license found at http://polymer.g
 
 
         importFragment: function() {
-          if (this.slugUrl) {
+          if (app && app.params && app.params.slug) {
             console.log( "importFragment would be here, with: " + this.$.imp_content.id);
-            var link = this.importHref( this.slugUrl,
+            //var link = this.importHref( this.slugUrl + "/index.html",
+            var link = this.importHref( "/post/" + app.params.slug + "/index.html",
                 function() {
                   if( link.import === null ) {
                     console.log( "nothing to import @ " + link.href );
                   } else {
+                    var nodes = Polymer.dom(this.$.imp_content).childNodes;
+                    for ( n in nodes ) {
+                      Polymer.dom(this.$.imp_content).removeChild(n);
+                    }
+
                     console.log( "appending at: " + this.$.imp_content.id)
                     Polymer.dom(this.$.imp_content).appendChild(link.import.body);
                   }
