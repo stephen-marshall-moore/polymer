@@ -1,3 +1,5 @@
+<paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
+
 {{ range .Data.Pages }}
 <paper-item>
 <div class="content">
@@ -7,3 +9,5 @@
 </div>
 </paper-item>
 {{ end }}
+
+</paper-menu>

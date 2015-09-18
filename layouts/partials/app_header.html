@@ -176,10 +176,17 @@
         <paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
 
         {{ range .Site.Menus.main }}
+          {{ if .Post }}
+          <a data-route="{{ .Identifier }}" href="{{ .Post }}">
+            <iron-icon icon="{{ .Pre }}"></iron-icon>
+            <span>{{ .Name }}</span>
+          </a>
+          {{ else }}
           <a data-route="{{ .Identifier }}" href="{{ .URL }}">
             <iron-icon icon="{{ .Pre }}"></iron-icon>
             <span>{{ .Name }}</span>
           </a>
+          {{ end }}
         {{ end }}
 
         </paper-menu>

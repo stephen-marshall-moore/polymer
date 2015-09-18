@@ -1,6 +1,7 @@
 <!--
 @license
-Copyright (c) 2015 EllipticInfo Authors. All rights reserved.
+Copyright (c) 2015 The Blog Elliptic Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 -->
 
 <dom-module id="post-item">
@@ -8,18 +9,20 @@ Copyright (c) 2015 EllipticInfo Authors. All rights reserved.
     :host {
       display: block;
     }
-  </style>
 
+    .iron-selected {
+      background: #eee;
+    }
+  </style>
   <template>
-    <section>
-      <table>
-        <tr>
-        <td><img width="100 px" on-tap="showSource" src="{{posterPath}}"/></td>
-        <td><button on-tap="showSource">View</button></td>
-        <td><div>{{item.VideoID.S}}</div></td>
-        </tr>
-      </table>
-    </section>
+    <div id="imp_content"></div>
+    <!-- section>
+    <iron-selector selected="{{selectedpost}}">
+      <template is="dom-repeat" items="{{posts}}">
+        <post-item item="{{post}}"/>
+      </template>
+    </iron-selector>
+    </section -->
   </template>
 
   <script>
@@ -27,38 +30,30 @@ Copyright (c) 2015 EllipticInfo Authors. All rights reserved.
       Polymer({
         is: 'post-item',
         properties: {
-          item: {
-            type: Object,
-            notify: true,
-          },
-          vsource: {
+        slugUrl: {
             type: String,
-            notify: true,
+            observer: 'importFragment',
           },
-          bucket: {
-            type: String,
-            value: 'https://s3-us-west-2.amazonaws.com/videopail/'
-          },
-          streamPath: {
-            type: String
-          },
-          posterPath: {
-            type: String,
-            computed: 'poster(item)'
+        },
+
+
+        importFragment: function() {
+          if (this.slugUrl) {
+            console.log( "importFragment would be here, with: " + this.$.imp_content.id);
+            var link = this.importHref( this.slugUrl,
+                function() {
+                  if( link.import === null ) {
+                    console.log( "nothing to import @ " + link.href );
+                  } else {
+                    console.log( "appending at: " + this.$.imp_content.id)
+                    Polymer.dom(this.$.imp_content).appendChild(link.import.body);
+                  }
+                },
+                function() {
+                  console.log("post-item: import error");
+                });
           }
-        },
-
-        poster: function(i) {
-          this.streamPath = i.Streampath ? i.Streampath.S : '';
-          var fullPath = i.Posterpath ? this.bucket + i.Posterpath.S : '';
-          return fullPath;
-        },
-
-        showSource: function(e) {
-          this.vsource = this.streamPath;
-          page.redirect('/view');
-        },
-
+        }
       });
     })();
   </script>

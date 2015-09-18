@@ -57,17 +57,21 @@ This code may only be used under the BSD style license found at http://polymer.g
         //},
 
         importFragment: function() {
-          //if (this.postslug) {
+          if (this.slugUrl) {
             console.log( "importFragment would be here, with: " + this.$.imp_content.id);
             var link = this.importHref( this.slugUrl,
                 function() {
-                  console.log( "appending at: " + this.$.imp_content.id)
-                  Polymer.dom(this.$.imp_content).appendChild(link.import.body);
+                  if( link.import === null ) {
+                    console.log( "nothing to import @ " + link.href );
+                  } else {
+                    console.log( "appending at: " + this.$.imp_content.id)
+                    Polymer.dom(this.$.imp_content).appendChild(link.import.body);
+                  }
                 },
                 function() {
-                  console.log("post-import error");
+                  console.log("post-list: post-import error");
                 });
-          //}
+          }
         }
       });
     })();
