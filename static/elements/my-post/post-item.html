@@ -33,27 +33,26 @@ This code may only be used under the BSD style license found at http://polymer.g
           },
         }, //properties
 
-        //slug2url: function() {
-        //    return '/post/' + this.postSlug + '/index.html';
-        //  },
-
 
         importFragment: function() {
-          //if (app && app.params && app.params.slug) {
           if (this.postSlug) {
             console.log( "importFragment would be here, with: " + this.$.imp_content.id);
-            //var link = this.importHref( this.slug2url(),
-            var link = this.importHref( "/post/" + this.postSlug + "/index.html",
-                function() {
-                  if( link.import === null ) {
+
+            this.importHref( "/post/" + this.postSlug + "/index.html",
+                function(evt) {
+                  var link = evt.target;
+                  var doc = link.import;
+                  if( doc === null ) {
                     console.log( "nothing to import @ " + link.href );
                   } else {
-                    //var nodes = Polymer.dom(this.$.imp_content).childNodes;
-                    //for ( n in nodes ) {
-                    //  Polymer.dom(this.$.imp_content).removeChild(n);
+                    var ns = Polymer.dom(this.$.imp_content).childNodes[0];
+                    //for( n in ns ) {
+                    if(ns) { Polymer.dom(this.$.imp_content).removeChild(ns); }
                     //}
-                    console.log( "appending at: " + this.$.imp_content.id)
-                    Polymer.dom(this.$.imp_content).appendChild(link.import.body);
+
+                    console.log( "appending at: " + this.$.imp_content.id);
+                    var el = doc.body;
+                    Polymer.dom(this.$.imp_content).appendChild(el.cloneNode(true));
                   }
                 },
                 function() {
