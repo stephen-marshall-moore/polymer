@@ -58,7 +58,7 @@ This code may only be used under the BSD style license found at http://polymer.g
 
         importFragment: function() {
           if (this.slugUrl) {
-            console.log( "importFragment would be here, with: " + this.$.imp_content.id);
+            console.log( "importFragment would be here, slug: " + this.slugUrl);
             var link = this.importHref( this.slugUrl,
                 function() {
                   if( link.import === null ) {
@@ -70,6 +70,7 @@ This code may only be used under the BSD style license found at http://polymer.g
                 },
                 function() {
                   console.log("post-list: post-import error");
+                  page.redirect('/404');
                 });
           }
         }

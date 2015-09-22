@@ -26,6 +26,10 @@ This code may only be used under the BSD style license found at http://polymer.g
       Polymer({
         is: 'post-item',
         properties: {
+        baseUrl: {
+            type: String,
+            value: '/post/'
+          },
         postSlug: {
             type: String,
             observer: 'importFragment',
@@ -38,7 +42,7 @@ This code may only be used under the BSD style license found at http://polymer.g
           if (this.postSlug) {
             console.log( "importFragment would be here, with: " + this.$.imp_content.id);
 
-            this.importHref( "/post/" + this.postSlug + "/index.html",
+            this.importHref( this.baseUrl + this.postSlug + "/index.html",
                 function(evt) {
                   var link = evt.target;
                   var doc = link.import;
@@ -57,6 +61,7 @@ This code may only be used under the BSD style license found at http://polymer.g
                 },
                 function() {
                   console.log("post-item: import error");
+                  page.show('/404.html');
                 });
           }
         } //importFragment

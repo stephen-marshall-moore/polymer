@@ -1,31 +1,22 @@
 <section>
-<paper-item>
 <div class="content">
 
+  <paper-card>
   <div class="article">
+
+<paper-material elevation="1">
     <div class="title">{{ .Title }}</div>
-    {{if .Params.categories }}
-      <div class="categories">
-        {{ range $index, $category := .Params.categories }}
-          <a href="categories/{{ $category | urlize }}/">{{ $category }}</a>
-        {{ end }}
-      </div>
-    {{end}} 
+</paper-material>
+
+<paper-material elevation="1">
     <div class="description">{{ .Content }}</div>
-    <div class="tags">
+</paper-material elevation="1">
+
+<paper-material elevation="1">
       {{ .Date.Format "2 Jan 2006" }}
-      {{if .Params.tags }}
-        {{ range $index, $tag := .Params.tags }}
-          <a href="tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
-        {{ end }}
-      {{end}} 
-    </div>
-  </div>
-
-</div>
-</paper-item>
-
+</paper-material>
 <paper-item>
+  <div>
   {{if .Prev}}
     <a data-route="/post/{{.Prev.Slug}}" href="/post/{{.Prev.Slug}}"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
   {{else}}
@@ -37,5 +28,29 @@
   {{else}}
     <paper-fab disabled icon="chevron-right"></paper-fab>
   {{end}}
+  </div>
 </paper-item>
+<paper-material elevation="1">
+    {{if .Params.categories }}
+      <div class="categories">
+        {{ range $index, $category := .Params.categories }}
+          <a href="/categories/{{ $category }}">{{ $category }}</a>
+        {{ end }}
+      </div>
+    {{end}} 
+</paper-material>
+<paper-material elevation="1">
+    <div class="tags">
+      {{if .Params.tags }}
+        {{ range $index, $tag := .Params.tags }}
+          <a href="/tags/{{ $tag }}">#{{ $tag }}</a>
+        {{ end }}
+      {{end}} 
+    </div>
+</paper-material>
+
+  </div>
+  </paper-card>
+
+</div>
 </section>

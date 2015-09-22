@@ -9,7 +9,7 @@
     <paper-material elevation="1">
 
       <paper-item>
-        <post-list slug-url="/home/index.html"></post-item>
+        <post-list slug-url="/home/index.html"></post-list>
       </paper-item>
 
     </paper-material>
@@ -19,7 +19,7 @@
     <paper-material elevation="1">
 
       <paper-item>
-        <post-list slug-url="/post/index.html"></post-item>
+        <post-list slug-url="/post/index.html"></post-list>
       </paper-item>
 
     </paper-material>
@@ -39,7 +39,58 @@
     <paper-material elevation="1">
 
       <paper-item>
-        <post-list slug-url="/contact/index.html"></post-item>
+        <post-list slug-url="/contact/index.html"></post-list>
+      </paper-item>
+
+    </paper-material>
+  </section>
+
+  <section data-route="category">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <post-list slug-url="/categories/index.html"></post-list>
+      </paper-item>
+
+    </paper-material>
+  </section>
+
+  <section data-route="categories">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <post-item base-url="/categories/" post-slug="[[params.catslug]]"></post-item>
+      </paper-item>
+
+    </paper-material>
+  </section>
+
+  <section data-route="tag">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <post-list slug-url="/tags/index.html"></post-list>
+      </paper-item>
+
+    </paper-material>
+  </section>
+
+
+  <section data-route="tags">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <post-item  base-url="/tags/" post-slug="[[params.tagslug]]"></post-item>
+      </paper-item>
+
+    </paper-material>
+  </section>
+
+  <section data-route="notfound">
+    <paper-material elevation="1">
+
+      <paper-item>
+        <h3>Content Not Found</h3>
       </paper-item>
 
     </paper-material>
