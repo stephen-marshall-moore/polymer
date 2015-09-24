@@ -1,6 +1,6 @@
 <paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
 
-{{ range .Data.Pages }}
+{{ range where .Data.Pages.ByDate "Section" "post" }}
 <paper-item>
 <div class="content">
 <a data-route="post" href="/post/{{.Slug}}">{{.Title}}</a>
