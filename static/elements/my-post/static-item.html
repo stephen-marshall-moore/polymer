@@ -7,8 +7,9 @@ This code may only be used under the BSD style license found at http://polymer.g
 <dom-module id="static-item">
   <style>
     :host {
-      display: flex;
-      background: #121212;
+      display: block;
+      background: #868686;
+      min-height: "400px";
     }
 
     .iron-selected {
@@ -17,9 +18,7 @@ This code may only be used under the BSD style license found at http://polymer.g
   </style>
 
   <template>
-    <paper-material>
-      <article id="wrapper"><content></content></article>
-    </paper-material>
+    <content></content>
   </template>
 
   <script>
@@ -40,7 +39,7 @@ This code may only be used under the BSD style license found at http://polymer.g
 
         importFragment: function() {
           if (this.itemUrl) {
-            console.log( "static-item import at " + this.$.wrapper.id);
+            console.log( "static-item import at root"); //+ this.$.root.id);
 
             this.importHref( this.itemUrl,
                 function(evt) {
@@ -54,10 +53,15 @@ This code may only be used under the BSD style license found at http://polymer.g
                     //if(ns) { Polymer.dom(this.$.content).removeChild(ns); }
                     //}
 
-                    console.log( "appending at: " + this.$.wrapper.id);
-                    var el = doc.body;
-                    Polymer.dom(this.$.wrapper).appendChild(el.cloneNode(true));
+                    console.log( "appending: " + this.itemUrl);
+                    var el = doc.body.children[0];
+                    Polymer.dom(this.root).appendChild(el.cloneNode(true));
+                    //this.translate3d(0,-64,0);
                     Polymer.dom.flush();
+                    var pgs = document.getElementById('fefe');         
+                    pgs.notifyResize();
+                    var pnl = document.getElementById('gigi');         
+                    pnl.measureHeaderHeight();
                   }
                 },
                 function() {
