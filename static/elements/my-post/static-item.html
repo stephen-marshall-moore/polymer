@@ -8,7 +8,7 @@ This code may only be used under the BSD style license found at http://polymer.g
   <style>
     :host {
       display: block;
-      background: #868686;
+      /* background: #868686; */
     }
 
     .iron-selected {
@@ -53,9 +53,13 @@ This code may only be used under the BSD style license found at http://polymer.g
                     //}
 
                     console.log( "appending: " + this.itemUrl);
-                    var el = doc.body.children[0];
+                    var limit = doc.body.children.length;
+
+                    for ( i = 0; i < limit; ++i ) {
+                      var el = doc.body.children[i];
                     //Polymer.dom(this.root).appendChild(el.cloneNode(true));
-                    this.appendChild(el.cloneNode(true));
+                      this.appendChild(el.cloneNode(true));
+                    }
                     //this.translate3d(0,-64,0);
                     //Polymer.dom.flush();
                     //this.flush();
