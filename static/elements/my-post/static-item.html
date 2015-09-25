@@ -9,7 +9,6 @@ This code may only be used under the BSD style license found at http://polymer.g
     :host {
       display: block;
       background: #868686;
-      min-height: "400px";
     }
 
     .iron-selected {
@@ -55,13 +54,16 @@ This code may only be used under the BSD style license found at http://polymer.g
 
                     console.log( "appending: " + this.itemUrl);
                     var el = doc.body.children[0];
-                    Polymer.dom(this.root).appendChild(el.cloneNode(true));
+                    //Polymer.dom(this.root).appendChild(el.cloneNode(true));
+                    this.appendChild(el.cloneNode(true));
                     //this.translate3d(0,-64,0);
-                    Polymer.dom.flush();
-                    var pgs = document.getElementById('fefe');         
-                    pgs.notifyResize();
-                    var pnl = document.getElementById('gigi');         
-                    pnl.measureHeaderHeight();
+                    //Polymer.dom.flush();
+                    //this.flush();
+                    //var pgs = document.getElementById('fefe');         
+                    //pgs.notifyResize();
+                    this.fire('resize');
+                    //var pnl = document.getElementById('gigi');         
+                    //pnl.measureHeaderHeight();
                   }
                 },
                 function() {
