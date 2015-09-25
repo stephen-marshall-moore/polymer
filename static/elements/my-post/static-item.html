@@ -1,0 +1,75 @@
+<!--
+@license
+Copyright (c) 2015 The Blog Elliptic Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+-->
+
+<dom-module id="static-item">
+  <style>
+    :host {
+      display: flex;
+      background: #121212;
+    }
+
+    .iron-selected {
+      background: #eee;
+    }
+  </style>
+
+  <template>
+    <paper-material>
+      <article id="wrapper"><content></content></article>
+    </paper-material>
+  </template>
+
+  <script>
+    (function () {
+      Polymer({
+        is: 'static-item',
+
+        properties: {
+        itemUrl: {
+            type: String,
+            value: '/404.html'
+          },
+        }, //properties
+
+        ready: function() {
+          this.importFragment();
+        },
+
+        importFragment: function() {
+          if (this.itemUrl) {
+            console.log( "static-item import at " + this.$.wrapper.id);
+
+            this.importHref( this.itemUrl,
+                function(evt) {
+                  var link = evt.target;
+                  var doc = link.import;
+                  if( doc === null ) {
+                    console.log( "nothing to import @ " + link.href );
+                  } else {
+                    //var ns = Polymer.dom(this.$.content).childNodes[0];
+                    //for( n in ns ) {
+                    //if(ns) { Polymer.dom(this.$.content).removeChild(ns); }
+                    //}
+
+                    console.log( "appending at: " + this.$.wrapper.id);
+                    var el = doc.body;
+                    Polymer.dom(this.$.wrapper).appendChild(el.cloneNode(true));
+                    Polymer.dom.flush();
+                  }
+                },
+                function() {
+                  console.log("static-item: import error");
+                  page.show('/404.html');
+                });
+          }
+      },  //importFragment
+
+
+      }); //polymer
+    })();
+  </script>
+
+</dom-module>
