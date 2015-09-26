@@ -59,7 +59,7 @@
 
     <paper-drawer-panel id="paperDrawerPanel" drawer-width="175px">
       <!-- Drawer Scroll Header Panel -->
-      <paper-scroll-header-panel id="gigi" drawer fixed>
+      <paper-scroll-header-panel drawer fixed>
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
@@ -128,7 +128,7 @@
 
           <!-- Toolbar icons -->
           <!-- paper-icon-button icon="refresh"></paper-icon-button -->
-          <paper-icon-button icon="search"></paper-icon-button>
+          <a href="/search/index.html"><paper-icon-button icon="search"></paper-icon-button></a>
 
 		{{ range $item := .Site.Params.logos }}
 			{{ if eq $item.site "weibo" }}
@@ -145,7 +145,7 @@
 				<a href="https://www.linkedin.com/in/{{ $item.username }}"><paper-icon-button src="{{$baseurl}}/images/linkedin.png"></paper-icon-button></a>
 			{{end}}
 		{{end}}
-		<a href="{{$baseurl}}/index.xml"><paper-icon-button src="{{$baseurl}}/images/feed.png"></paper-icon-button></a>
+		<!-- a href="{{$baseurl}}/index.xml"><paper-icon-button src="{{$baseurl}}/images/feed.png"></paper-icon-button></a -->
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">

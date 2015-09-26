@@ -28,10 +28,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
     // imports are loaded and elements have been registered
-    // kludge, chrome seems to need to resize before nav menu is positioned properly
-    //var pgs = document.getElementById('fefe');
-         
-    //pgs.notifyResize();
   });
 
   // Main area's paper-scroll-header-panel custom condensing transformation of

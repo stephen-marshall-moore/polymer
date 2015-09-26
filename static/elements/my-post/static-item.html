@@ -38,36 +38,25 @@ This code may only be used under the BSD style license found at http://polymer.g
 
         importFragment: function() {
           if (this.itemUrl) {
-            console.log( "static-item import at root"); //+ this.$.root.id);
+            //console.log( "static-item import at root");
 
             this.importHref( this.itemUrl,
                 function(evt) {
                   var link = evt.target;
                   var doc = link.import;
                   if( doc === null ) {
-                    console.log( "nothing to import @ " + link.href );
+                    //console.log( "nothing to import @ " + link.href );
                   } else {
-                    //var ns = Polymer.dom(this.$.content).childNodes[0];
-                    //for( n in ns ) {
-                    //if(ns) { Polymer.dom(this.$.content).removeChild(ns); }
-                    //}
 
-                    console.log( "appending: " + this.itemUrl);
+                    //console.log( "appending: " + this.itemUrl);
                     var limit = doc.body.children.length;
 
                     for ( i = 0; i < limit; ++i ) {
                       var el = doc.body.children[i];
-                    //Polymer.dom(this.root).appendChild(el.cloneNode(true));
                       this.appendChild(el.cloneNode(true));
                     }
-                    //this.translate3d(0,-64,0);
-                    //Polymer.dom.flush();
-                    //this.flush();
-                    //var pgs = document.getElementById('fefe');         
-                    //pgs.notifyResize();
+
                     this.fire('resize');
-                    //var pnl = document.getElementById('gigi');         
-                    //pnl.measureHeaderHeight();
                   }
                 },
                 function() {
