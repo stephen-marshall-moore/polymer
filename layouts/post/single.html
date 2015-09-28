@@ -1,56 +1,60 @@
 <section>
 <div class="content">
 
-  <paper-card>
+  <!-- paper-card -->
   <div class="article">
 
 <paper-material elevation="1">
-    <div class="title">{{ .Title }}</div>
+  <div class="header">
+  {{if eq .Prev.Slug "index"}}
+    <paper-fab disabled mini icon="chevron-left"></paper-fab>
+  {{else}}
+    <a data-route="/post/{{.Prev.Slug}}" href="/post/{{.Prev.Slug}}"><paper-fab mini icon="chevron-left"></paper-fab></a>
+  {{end}}
+
+  <div class="title">
+    <h1>{{ .Title }}</h1>
+    <h2>{{ .Date.Format "2 January 2006" }}</h2>
+  </div>
+
+  {{if eq .Next.Slug ""}}
+    <paper-fab disabled mini icon="chevron-right"></paper-fab>
+  {{else}}
+    <a  data-route="/post/{{.Next.Slug}}" href="/post/{{.Next.Slug}}"><paper-fab mini icon="chevron-right"></paper-fab></a>
+  {{end}}
+  </div>
 </paper-material>
 
 <paper-material elevation="1">
-    <div class="description">{{ .Content }}</div>
+    <div class="body">{{ .Content }}</div>
 </paper-material elevation="1">
 
 <paper-material elevation="1">
-      {{ .Date.Format "2 Jan 2006" }}
-</paper-material>
-<paper-item>
-  <div>
-  {{if .Prev}}
-    <a data-route="/post/{{.Prev.Slug}}" href="/post/{{.Prev.Slug}}"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
-  {{else}}
-    <paper-fab disabled icon="chevron-left"></paper-fab>
-  {{end}}
-    <div class="flex"></div>
-  {{if .Next}}
-    <a  data-route="/post/{{.Next.Slug}}" href="/post/{{.Next.Slug}}"><paper-fab icon="chevron-right"></paper-fab></a>
-  {{else}}
-    <paper-fab disabled icon="chevron-right"></paper-fab>
-  {{end}}
-  </div>
-</paper-item>
-<paper-material elevation="1">
+  <div class="footer">
+
     {{if .Params.categories }}
       <div class="categories">
+        <span>categories:</span>
         {{ range $index, $category := .Params.categories }}
           <a href="/categories/{{ $category }}">{{ $category }}</a>
         {{ end }}
       </div>
     {{end}} 
-</paper-material>
-<paper-material elevation="1">
+
     <div class="tags">
+        <span>tags:</span>
       {{if .Params.tags }}
         {{ range $index, $tag := .Params.tags }}
           <a href="/tags/{{ $tag }}">#{{ $tag }}</a>
         {{ end }}
       {{end}} 
     </div>
+
+  </div>
 </paper-material>
 
   </div>
-  </paper-card>
+  <!-- /paper-card -->
 
 </div>
 </section>
