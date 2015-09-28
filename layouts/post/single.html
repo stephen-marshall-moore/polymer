@@ -6,10 +6,10 @@
 
 <paper-material elevation="1">
   <div class="header">
-  {{if eq .Prev.Slug "index"}}
-    <paper-fab disabled mini icon="chevron-left"></paper-fab>
+  {{if .PrevInSection}}
+    <a data-route="/post/{{.PrevInSection.Slug}}" href="/post/{{.PrevInSection.Slug}}"><paper-fab mini icon="chevron-left"></paper-fab></a>
   {{else}}
-    <a data-route="/post/{{.Prev.Slug}}" href="/post/{{.Prev.Slug}}"><paper-fab mini icon="chevron-left"></paper-fab></a>
+    <paper-fab disabled mini icon="chevron-left"></paper-fab>
   {{end}}
 
   <div class="title">
@@ -17,10 +17,10 @@
     <h2>{{ .Date.Format "2 January 2006" }}</h2>
   </div>
 
-  {{if eq .Next.Slug ""}}
-    <paper-fab disabled mini icon="chevron-right"></paper-fab>
+  {{if .NextInSection}}
+    <a  data-route="/post/{{.NextInSection.Slug}}" href="/post/{{.NextInSection.Slug}}"><paper-fab mini icon="chevron-right"></paper-fab></a>
   {{else}}
-    <a  data-route="/post/{{.Next.Slug}}" href="/post/{{.Next.Slug}}"><paper-fab mini icon="chevron-right"></paper-fab></a>
+    <paper-fab disabled mini icon="chevron-right"></paper-fab>
   {{end}}
   </div>
 </paper-material>
