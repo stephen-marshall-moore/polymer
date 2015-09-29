@@ -36,7 +36,7 @@
       <div class="categories">
         <span>categories:</span>
         {{ range $index, $category := .Params.categories }}
-          <a href="/categories/{{ $category }}">{{ $category }}</a>
+          <a data-route="/categories/{{ $category | urlize }}" href="/categories/{{ $category | urlize }}">{{ $category }}</a>
         {{ end }}
       </div>
     {{end}} 
@@ -45,7 +45,7 @@
         <span>tags:</span>
       {{if .Params.tags }}
         {{ range $index, $tag := .Params.tags }}
-          <a href="/tags/{{ $tag }}">#{{ $tag }}</a>
+          <a data-route="/tags/{{ $tag }}" href="/tags/{{ $tag }}">#{{ $tag }}</a>
         {{ end }}
       {{end}} 
     </div>

@@ -40,8 +40,7 @@
   <section data-route="category">
     <paper-material elevation="1">
 
-
-      <span>placeholder for category</span>
+      <post-item base-url="/categories/" post-slug="[[params.catslug]]"></post-item>
 
     </paper-material>
   </section>
@@ -49,8 +48,7 @@
   <section data-route="categories">
     <paper-material elevation="1">
 
-
-      <span>placeholder for categories</span>
+      <static-item item-url="/categories/index.html"></static-item>
 
     </paper-material>
   </section>
@@ -58,8 +56,7 @@
   <section data-route="tag">
     <paper-material elevation="1">
 
-
-      <span>placeholder for tag</span>
+      <post-item base-url="/tags/" post-slug="[[params.tagslug]]"></post-item>
 
     </paper-material>
   </section>
@@ -68,7 +65,7 @@
   <section data-route="tags">
     <paper-material elevation="1">
 
-      <span>placeholder for tags</span>
+      <static-item item-url="/tags/index.html"></static-item>
 
     </paper-material>
   </section>

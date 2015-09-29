@@ -2,7 +2,11 @@
 
 <paper-menu>
   {{ range $key, $value := .Data.Terms }}
-    <a href="/{{ $data.Plural }}/{{ $key | urlize }}"><paper-item>{{ if eq $data.Plural "tags"}}<iron-icon icon="loyalty"></iron-icon>{{else}}<iron-icon icon="drafts"></iron-icon>{{end}}　<div class="flex">{{ $key }}</div> {{ len $value }}</paper-item></a>
+    <a data-route="/{{ $data.Plural }}/{{ $key | urlize }}" href="/{{ $data.Plural }}/{{ $key | urlize }}">
+      <paper-item>{{ if eq $data.Plural "tags"}}<iron-icon icon="loyalty"></iron-icon>{{else}}<iron-icon icon="drafts"></iron-icon>{{end}}
+      <div class="flex">{{ $key | urlize }}</div><div>{{ len $value }}</div>
+      </paper-item>
+    </a>
   {{ end }}
 </paper-menu>
 

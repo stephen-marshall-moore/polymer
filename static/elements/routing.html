@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
     page('/categories/:catslug', function (data) {
-            app.route = 'categories';
+            app.route = 'category';
             app.params = data.params;
         });
 
@@ -52,7 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
     page('/tags/:tagslug', function (data) {
-            app.route = 'tags';
+            app.route = 'tag';
             app.params = data.params;
         });
 
