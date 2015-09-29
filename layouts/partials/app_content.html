@@ -2,7 +2,7 @@
 <div class="content">
 
 
-<iron-pages id="fefe" attr-for-selected="data-route" selected="{{"{{route}}"}}">
+<iron-pages attr-for-selected="data-route" selected="{{"{{route}}"}}">
 
   <section data-route="home">
     <paper-material elevation="1">
@@ -16,7 +16,7 @@
   <section data-route="posts">
     <paper-material elevation="1">
 
-      <static-item item-url="/post/index.html"></static-item>
+      <static-item item-url="/posts/index.html"></static-item>
 
     </paper-material>
   </section>
@@ -24,7 +24,7 @@
   <section data-route="post">
     <paper-material elevation="1">
 
-      <post-item post-slug="[[params.slug]]"></post-item>
+      <post-item base-url="/posts/" post-slug="[[params.slug]]"></post-item>
 
     </paper-material>
   </section>

@@ -7,7 +7,7 @@
 <paper-material elevation="1">
   <div class="header">
   {{if .PrevInSection}}
-    <a data-route="/post/{{.PrevInSection.Slug}}" href="/post/{{.PrevInSection.Slug}}"><paper-fab mini icon="chevron-left"></paper-fab></a>
+    <a data-route="/posts/{{.PrevInSection.Slug}}" href="/posts/{{.PrevInSection.Slug}}"><paper-fab mini icon="chevron-left"></paper-fab></a>
   {{else}}
     <paper-fab disabled mini icon="chevron-left"></paper-fab>
   {{end}}
@@ -18,7 +18,7 @@
   </div>
 
   {{if .NextInSection}}
-    <a  data-route="/post/{{.NextInSection.Slug}}" href="/post/{{.NextInSection.Slug}}"><paper-fab mini icon="chevron-right"></paper-fab></a>
+    <a  data-route="/posts/{{.NextInSection.Slug}}" href="/posts/{{.NextInSection.Slug}}"><paper-fab mini icon="chevron-right"></paper-fab></a>
   {{else}}
     <paper-fab disabled mini icon="chevron-right"></paper-fab>
   {{end}}
@@ -45,7 +45,7 @@
         <span>tags:</span>
       {{if .Params.tags }}
         {{ range $index, $tag := .Params.tags }}
-          <a data-route="/tags/{{ $tag }}" href="/tags/{{ $tag }}">#{{ $tag }}</a>
+          <a data-route="/tags/{{ $tag | urlize }}" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
         {{ end }}
       {{end}} 
     </div>

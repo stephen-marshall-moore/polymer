@@ -1,3 +1,5 @@
+<!-- span>default taxonomy list</span -->
+<h1>{{.Data.Singular}}: {{.Title}}</h1>
 <paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
 
 {{ range where .Data.Pages.ByDate "Section" "posts" }}
