@@ -45,14 +45,6 @@
     </paper-material>
   </section>
 
-  <section data-route="categories">
-    <paper-material elevation="1">
-
-      <static-item item-url="/categories/index.html"></static-item>
-
-    </paper-material>
-  </section>
-
   <section data-route="tag">
     <paper-material elevation="1">
 
@@ -61,13 +53,33 @@
     </paper-material>
   </section>
 
+  <section data-route="search">
 
-  <section data-route="tags">
+  <paper-tabs attr-for-selected="kind" selected="{{"{{sub}}"}}">
+    <paper-tab kind="categories">Categories</paper-tab>
+    <paper-tab kind="tags">Tags</paper-tab>
+  </paper-tabs>
+
+  <iron-pages attr-for-selected="kind" selected="{{"{{sub}}"}}">
+
+  <section kind="categories">
+    <paper-material elevation="1">
+
+      <static-item item-url="/categories/index.html"></static-item>
+
+    </paper-material>
+  </section>
+
+  <section kind="tags">
     <paper-material elevation="1">
 
       <static-item item-url="/tags/index.html"></static-item>
 
     </paper-material>
+  </section>
+
+  </iron-pages>
+
   </section>
 
   <section data-route="notfound">
