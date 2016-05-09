@@ -49,10 +49,11 @@
   <!-- Configured routes are in here -->
   <link rel="import" href="elements/routing.html">
 
+	<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
 
 </head>
 
-<body unresolved class="fullbleed layout vertical">
+<body unresolved>
 
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
@@ -147,7 +148,7 @@
 		{{end}}
 		<!-- a href="{{$baseurl}}/index.xml"><paper-icon-button src="{{$baseurl}}/images/feed.png"></paper-icon-button></a -->
 
-          <!-- Application name -->
+          <!-- Application name  -->
           <div class="middle middle-container center horizontal layout">
             <div class="app-name">{{.Site.Title}}</div>
           </div>

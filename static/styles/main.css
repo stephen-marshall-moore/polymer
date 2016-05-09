@@ -8,6 +8,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 body {
+	@apply(--layout-vertical); 
+	@apply(--layout-fullbleed);  
+
   background: #fafafa;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
