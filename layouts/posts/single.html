@@ -4,8 +4,9 @@
   <!-- paper-card -->
   <div class="article">
 
-<paper-material elevation="1">
+<paper-material elevation="2">
   <div class="header">
+
   {{if .PrevInSection}}
     <a data-route="/posts/{{.PrevInSection.Slug}}" href="/posts/{{.PrevInSection.Slug}}"><paper-fab mini icon="chevron-left"></paper-fab></a>
   {{else}}
@@ -29,7 +30,7 @@
     <div class="body">{{ .Content }}</div>
 </paper-material elevation="1">
 
-<paper-material elevation="1">
+<paper-material elevation="0">
   <div class="footer">
 
     {{if .Params.categories }}
@@ -40,6 +41,11 @@
         {{ end }}
       </div>
     {{end}} 
+
+  </div>
+</paper-material>
+<paper-material elevation="0">
+  <div class="footer">
 
     <div class="tags">
         <span>tags:</span>
