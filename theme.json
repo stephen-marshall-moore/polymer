@@ -1,0 +1,15 @@
+{
+	"name": "Polymer",
+	"license": "MIT",
+	"licenselink": "https://github.com/stephen-marshall-moore/polymer/blob/master/LICENSE.md",
+	"description": "Material Design theme by polymer (web components)",
+	"homepage": "https://github.com/stephen-marshall-moore/polymer",
+	"tags": ["blog"],
+	"features": ["Polymer Material Design", "Google Analytics", "Pagination", "Disqus", "Tags", "Categories", "Highlighting source code", "Cover image", "Social links"],
+	"min_version": 0.15,
+
+	"author": {
+  	"name": "xoc",
+  	"homepage": "http://blog.elliptic.info/"
+	}
+}

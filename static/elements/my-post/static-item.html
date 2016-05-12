@@ -17,7 +17,6 @@ This code may only be used under the BSD style license found at http://polymer.g
   </style>
 
   <template>
-    <content></content>
   </template>
 
   <script>
@@ -25,6 +24,15 @@ This code may only be used under the BSD style license found at http://polymer.g
       Polymer({
         is: 'static-item',
 
+/*
+				listeners: {
+					'tap' : 'tapper'
+				},
+
+				tapper: function(e) {
+					page.click(e);
+				},
+*/
         properties: {
         itemUrl: {
             type: String,
@@ -38,17 +46,17 @@ This code may only be used under the BSD style license found at http://polymer.g
 
         importFragment: function() {
           if (this.itemUrl) {
-            //console.log( "static-item import at root");
+            console.log( "static-item import at root");
 
             this.importHref( this.itemUrl,
                 function(evt) {
                   var link = evt.target;
                   var doc = link.import;
                   if( doc === null ) {
-                    //console.log( "nothing to import @ " + link.href );
+                    console.log( "nothing to import @ " + link.href );
                   } else {
 
-                    //console.log( "appending: " + this.itemUrl);
+                    console.log( "appending: " + this.itemUrl);
                     var limit = doc.body.children.length;
 
                     for ( i = 0; i < limit; ++i ) {
