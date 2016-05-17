@@ -1,11 +1,15 @@
 <!-- span>section/post.html</span -->
 
-<h1>List of Posts</h1>
-
 <paper-menu class="list" attr-for-selected="data-route" selected="{{"{{route}}"}}" on-iron-select="onMenuSelect">
 
-{{ range where .Data.Pages.ByDate.Reverse "Section" "posts" }}
+{{ range .Data.Pages.GroupByDate "2006" }}
+<h3>{{.Key}}</h3>
+
+{{ range where .Pages.ByDate.Reverse "Section" "posts"}}
 <a data-route="post" href="/posts/{{.Slug}}">{{.Title}}</a>
 {{ end }}
 
+{{ end }}
+
 </paper-menu>
+
