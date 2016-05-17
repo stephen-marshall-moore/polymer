@@ -1,8 +1,9 @@
 # Polymer
 
 Polymer is a web components material design theme for [Hugo](http://gohugo.io/).
+This fork of the project is probably not very mergeable/pullable back to the original by pdevty, for better or for worse, blame stephen.
 
-![](https://github.com/pdevty/polymer/blob/master/images/tn.png)
+![](https://github.com/stephen-marshall-moore/polymer/blob/master/images/tn.png)
 
 ## Features
 
@@ -21,7 +22,7 @@ Polymer is a web components material design theme for [Hugo](http://gohugo.io/).
 ```shell
 $ mkdir themes
 $ cd themes
-$ git clone https://github.com/pdevty/polymer
+$ git clone https://github.com/stephen-marshall-moore/polymer
 ```
 
 ## Usage
@@ -32,46 +33,57 @@ $ hugo server -t polymer -w -D
 
 ## Configuration
 
-config.toml
+config.json
 
-```toml
-theme="polymer"
-baseurl = "http://blog.elliptic.info"
-languageCode = "en-us"
-title = "Blog Elliptic"
-MetaDataFormat = "toml"
-paginate = 10 # optional
-disqusShortname = "Your Disqus Name" # optional
-copyright = "© 2015 Copyright Text"
-
-[params]
-  author = "Stephen Moore"
-  photo = "images/photo.png" # optional
-  profile = "images/profile.png" # optional
-  cover = "images/cover.png" # optional
-  [[params.logos]]
-    site = "weibo" # optional
-	username = "Your Weibo name"
-  [[params.logos]]
-    site = "twitter" # optional
-	username = "Your Twitter name"
-  [[params.logos]]
-    site = "facebook" # optional
-	username = "Your facebook name"
-  [[params.logos]]
-    site = "github" # optional
-	username = "stephen-marshall-moore"
-  [[params.logos]]
-    site = "gplus" # optional
-	username = "Your Google+ name"
-  [[params.logos]]
-    site = "linkedin" # optional
-	username = "Your linkedin name"
+```json
+{
+	"theme": "polymer",
+	"baseurl": "http://blog.nimbostrati.com",
+	"languageCode": "en-us",
+	"title": "Blog Nimbostrati",
+	"MetaDataFormat": "json",
+	"paginate": 10,
+	"disqusShortname": "Your Optional Disqus Name",
+	"copyright": "© 2015 Copyright Text",
+	"params": {
+		"author": "Stephen Moore",
+		"photo": "images/photo.png",
+		"profile": "images/profile.png",
+		"cover": "images/cover.png",
+		"logos": [
+			{
+				"site": "weibo",
+				"username = "Your Weibo name"
+			},
+			{
+				"site": "twitter",
+				"username = "Your Twitter name"
+			},
+			{
+				"site": "facebook",
+				"username = "Your Facebook name"
+			},
+			{
+				"site": "github",
+				"username = "Your GitHub name"
+			},
+			{
+				"site": "google+",
+				"username = "Your Google+ name"
+			},
+			{
+				"site": "linkedin",
+				"username = "Your LinkedIn name"
+			}
+		]
+	},
 	
-  googleAnalyticsUserID = "Your Analytics User Id" # optional
+	"googleAnalyticsUserID": "Your Optional Analytics User Id",
 
-[permalinks]
-  post = "/:year/:month/:day/:filename/" # optional
+	"permalinks": {
+		"post": "/:year/:month/:day/:filename/"
+	}
+}
 ```
 
 ## Contributing
