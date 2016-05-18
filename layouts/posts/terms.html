@@ -2,10 +2,10 @@
 {{ partial "header.html" . }}
 
 {{ $data := .Data }}
-
+<h3>jolly</h3>
 <paper-menu>
-  {{ range $key, $value := .Data.Terms }}
-    <a href="/{{ $data.Plural }}/{{ $key | urlize }}"><paper-item>{{ if eq $data.Plural "tags"}}<iron-icon icon="loyalty"></iron-icon>{{else}}<iron-icon icon="drafts"></iron-icon>{{end}}　<div class="flex">{{ $key }}</div> {{ len $value }}</paper-item></a>
+  {{ range $key, $value := .Data.Terms.Reverse }}
+    <a href="/{{ $data.Plural }}/{{ $key | urlize }}"><paper-item>{{ if eq $data.Plural "tags"}}<iron-icon icon="loyalty"></iron-icon>{{else}}<iron-icon icon="drafts"></iron-icon>{{end}}　<div class="flex">{{ $key }}</div><span>nonsense</span><div>{{ len $value }}what?</div></paper-item></a>
   {{ end }}
 </paper-menu>
 
