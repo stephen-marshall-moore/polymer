@@ -71,17 +71,17 @@
 
 		{{ range $item := .Site.Params.logos }}
 			{{ if eq $item.site "weibo" }}
-				<a href="http://www.weibo.com/{{ $item.username }}"><paper-icon-button src="{{$baseurl}}images/weibo.png"></paper-icon-button></a>
+				<a href="http://www.weibo.com/{{ $item.username }}" target="_blank"><paper-icon-button src="{{$baseurl}}images/weibo.png"></paper-icon-button></a>
 			{{ else if eq $item.site "github"}}
-				<a href="https://github.com/{{ $item.username }}"><paper-icon-button src="{{$baseurl}}images/github.png"></paper-icon-button></a>
+				<a href="https://github.com/{{ $item.username }}" target="_blank"><paper-icon-button src="{{$baseurl}}images/github.png"></paper-icon-button></a>
 			{{ else if eq $item.site "twitter"}}
-				<a href="https://twitter.com/{{ $item.username }}"><paper-icon-button src="{{$baseurl}}images/twitter.png"></paper-icon-button></a>
+				<a href="https://twitter.com/{{ $item.username }}" target="_blank"><paper-icon-button src="{{$baseurl}}images/twitter.png"></paper-icon-button></a>
 			{{ else if eq $item.site "facebook"}}
-				<a href="https://www.facebook.com/{{ $item.username }}"><paper-icon-button src="{{$baseurl}}images/facebook.png"></paper-icon-button></a>
+				<a href="https://www.facebook.com/{{ $item.username }}" target="_blank"><paper-icon-button src="{{$baseurl}}images/facebook.png"></paper-icon-button></a>
 			{{ else if eq $item.site "gplus"}}
-				<a href="https://google.com/+{{ $item.username }}"><paper-icon-button src="{{$baseurl}}images/gplus.png"></paper-icon-button></a>
+				<a href="https://google.com/+{{ $item.username }}" target="_blank"><paper-icon-button src="{{$baseurl}}images/gplus.png"></paper-icon-button></a>
 			{{ else if eq $item.site "linkedin"}}
-				<a href="https://www.linkedin.com/in/{{ $item.username }}"><paper-icon-button src="{{$baseurl}}images/linkedin.png"></paper-icon-button></a>
+				<a href="https://www.linkedin.com/in/{{ $item.username }}" target="_blank"><paper-icon-button src="{{$baseurl}}images/linkedin.png"></paper-icon-button></a>
 			{{end}}
 		{{end}}
 		<!-- a href="{{$baseurl}}/index.xml"><paper-icon-button src="{{$baseurl}}/images/feed.png"></paper-icon-button></a -->
